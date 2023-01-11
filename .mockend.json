@@ -1,5 +1,8 @@
 {
   "User": {
+    "_": {
+      "items": 8
+    },
     "name": {
       "regexp": "[A-Z][a-z]{5,10} [A-Z][a-z]{5,10}"
     },
@@ -39,7 +42,10 @@
   },
   "Request": {
     "title": {
-      "loremWords": { "minLength": 5, "maxLength": 20 }
+      "loremWords": {
+        "minLength": 5,
+        "maxLength": 20
+      }
     },
     "reason": {
       "loremSentences": {
@@ -65,7 +71,10 @@
   },
   "Comment": {
     "text": {
-      "loremParagraphs": { "minLength": 50, "maxLength": 200 }
+      "loremParagraphs": {
+        "minLength": 50,
+        "maxLength": 200
+      }
     },
     "request": {
       "belongsTo": "Request"
@@ -78,6 +87,6 @@
         "min": "2023-01-01T00:00:00Z",
         "max": "2023-12-31T23:59:59Z"
       }
-    }    
+    }
   }
 }
