@@ -1,6 +1,9 @@
 {
   "User": {
     "name": {
+      "regexp": "[A-Z][a-z]{5,10} [A-Z][a-z]{5,10}"
+    },
+    "password": {
       "string": {}
     },
     "avatarUrl": {
@@ -13,7 +16,7 @@
       ]
     },
     "email": {
-      "regexp": "#[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+      "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
     },
     "color": {
       "regexp": "#[0-9A-F]{6}"
@@ -26,6 +29,55 @@
     },
     "isPublic": {
       "boolean": {}
+    },
+    "createdAt": {
+      "dateTime": {
+        "min": "2022-01-01T00:00:00Z",
+        "max": "2022-12-31T23:59:59Z"
+      }
     }
+  },
+  "Request": {
+    "title": {
+      "loremWords": { "minLength": 5, "maxLength": 20 }
+    },
+    "reason": {
+      "loremSentences": {
+        "minLength": 30,
+        "maxLength": 200
+      }
+    },
+    "photo": {
+      "regexp": "https://picsum\\.photos/seed/[0-9]{5}/1920/1080"
+    },
+    "createdBy": {
+      "belongsTo": "User"
+    },
+    "createdAt": {
+      "dateTime": {
+        "min": "2023-01-01T00:00:00Z",
+        "max": "2023-12-31T23:59:59Z"
+      }
+    },
+    "comments": {
+      "hasMany": "Comment"
+    }
+  },
+  "Comment": {
+    "text": {
+      "loremParagraphs": { "minLength": 50, "maxLength": 200 }
+    },
+    "request": {
+      "belongsTo": "Request"
+    },
+    "createdBy": {
+      "belongsTo": "User"
+    },
+    "createdAt": {
+      "dateTime": {
+        "min": "2023-01-01T00:00:00Z",
+        "max": "2023-12-31T23:59:59Z"
+      }
+    }    
   }
 }
